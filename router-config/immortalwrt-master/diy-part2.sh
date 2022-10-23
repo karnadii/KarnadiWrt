@@ -41,7 +41,7 @@ sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 1024M/g" -e "s/post_max_size = 8M/post_max_size = 1024M/g" feeds/packages/lang/php7/files/php.ini
 
 # Delete duplicate package
-rm -rf feeds/luci/applications/luci-app-netdata
+# rm -rf feeds/luci/applications/luci-app-netdata
 
 #=================================
 # Utility App
