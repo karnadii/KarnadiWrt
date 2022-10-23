@@ -4,7 +4,6 @@
 #=====================================================================================
 
 name: Delete older releases and workflows
-
 on:
   repository_dispatch:
   workflow_dispatch:
