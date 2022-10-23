@@ -167,12 +167,12 @@ jobs:
           allowUpdates: true
           token: ${{ secrets.GH_TOKEN }}
           body: |
-            This is OpenWrt firmware for Amlogic s9xxx tv box
+            This is ImmortalWrt+ROOter firmware for Amlogic s9xxx tv box
             * Firmware information
-            Default IP: 192.168.1.1
+            Default IP: 11.11.1.1
             Default username: root
             Default password: password
-            Default WIFI name: OpenWrt
+            Default WIFI name: KarnadiWrt
             Default WIFI password: none
             Install to EMMC: Login to OpenWrt → System → Amlogic Service → Install OpenWrt
 
