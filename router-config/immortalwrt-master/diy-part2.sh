@@ -4,6 +4,11 @@
 # Function: Diy script (After Update feeds, Modify the default IP, hostname, theme, add/remove software packages, etc.)
 # Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
 #========================================================================================================================
+# TODO: 
+# - fix aria2 not running
+# - install libernet with php8
+# - make custom login header
+#
 #================================
 # Konfigurasi Setting
 #================================
