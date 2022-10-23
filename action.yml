@@ -63,6 +63,8 @@ runs:
         fi
         sync
         echo -e "About the ${openwrt_savepath} directory: \n$(ls -l ${openwrt_savepath} 2>/dev/null)"
+        echo "Removing openwrt folder to increase space"
+        rm -rf openwrt/
 
         cd ${GITHUB_ACTION_PATH}
         echo -e "Start to make openwrt..."

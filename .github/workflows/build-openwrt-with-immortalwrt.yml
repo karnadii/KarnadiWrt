@@ -136,7 +136,7 @@ jobs:
           cd openwrt
           echo -e "$(nproc) thread compile"
           make -j$(($(nproc) + 1)) V=s || make -j1 || make -j1 V=s
-          echo "build_tag=OpenWrt_Aml_official_$(date +"%m.%d.%H%M")" >> ${GITHUB_OUTPUT}
+          echo "build_tag=KarnadiWrt_Aml_ImmortalWrt$(date +"%m.%d.%H%M")" >> ${GITHUB_OUTPUT}
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Upload OpenWrt Firmware to Release
@@ -150,7 +150,7 @@ jobs:
 
       - name: Build OpenWrt firmware
         if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: karnadii/KarnadiWrt@main
         with:
           openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
           openwrt_soc: ${{ github.event.inputs.openwrt_soc }}
@@ -167,7 +167,7 @@ jobs:
           allowUpdates: true
           token: ${{ secrets.GH_TOKEN }}
           body: |
-            This is ImmortalWrt+ROOter firmware for Amlogic s9xxx tv box
+            This is KarnadiWrt, custom openwrt firmware based on ImmortalWrt and ROOter for Amlogic s9xxx tv box
             * Firmware information
             Default IP: 11.11.1.1
             Default username: root

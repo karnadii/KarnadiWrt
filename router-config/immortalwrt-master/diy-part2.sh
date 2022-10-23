@@ -9,7 +9,7 @@
 #================================
 # Set etc/openwrt_release
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
-echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
+echo "DISTRIB_SOURCECODE='karnadiwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
