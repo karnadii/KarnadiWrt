@@ -51,9 +51,6 @@ sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 # Set php7 max_size
 sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 1024M/g" -e "s/post_max_size = 8M/post_max_size = 1024M/g" feeds/packages/lang/php7/files/php.ini
 
-# Delete duplicate package
-# rm -rf feeds/luci/applications/luci-app-netdata
-
 #=================================
 # Utility App
 #=================================
@@ -138,7 +135,8 @@ svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner package
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
 # netdata
-git clone --depth 1 https://github.com/karnadii/luci-app-netdata package/luci-app-netdata
+rm -rf feeds/luci/applications/luci-app-netdata
+git clone --depth 1 https://github.com/karnadii/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
 #================================
 ## Modem Tool
