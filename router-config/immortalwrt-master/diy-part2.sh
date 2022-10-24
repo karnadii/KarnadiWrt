@@ -14,7 +14,7 @@
 #================================
 # Set etc/openwrt_release
 sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package/base-files/files/etc/openwrt_release
-echo "DISTRIB_SOURCECODE='karnadiwrt'" >>package/base-files/files/etc/openwrt_release
+echo "DISTRIB_SOURCECODE='KarnadiWrt'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
@@ -83,8 +83,7 @@ wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-aarc
 chmod +x files/bin/speedtest
 
 # Shutdown button
-git clone --depth 1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
-
+# git clone --depth 1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 
 #================================
 # Injek/Vpn/Bypass App
@@ -135,8 +134,8 @@ svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner package
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
 # netdata
-rm -rf feeds/luci/applications/luci-app-netdata
-git clone --depth 1 https://github.com/karnadii/luci-app-netdata feeds/luci/applications/luci-app-netdata
+# rm -rf feeds/luci/applications/luci-app-netdata
+# git clone --depth 1 https://github.com/karnadii/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
 #================================
 ## Modem Tool
