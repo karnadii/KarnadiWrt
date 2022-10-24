@@ -19,9 +19,14 @@ echo "DISTRIB_SOURCECODE='karnadiwrt'" >>package/base-files/files/etc/openwrt_re
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 sed -i 's/luci-theme-openwrt-2020/luci-theme-argon/g' package/ext-rooter-basic/Makefile
+sed -i "27 i\uci uci set luci.main.mediaurlbase='/luci-static/argon'\nuci commit luci\n" package/emortal/default-settings/files/99-default-settings
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
 sed -i 's/192.168.1.1/11.11.1.1/g' package/base-files/files/bin/config_generate
+
+# Set banner
+rm -rf ./package/emortal/default-settings/files/openwrt_banner
+svn export https://github.com/karnadii/KarnadiWrt/trunk/amlogic-s9xxx/common-files/rootfs/etc/banner package/emortal/default-settings/files/openwrt_banner
 
 # Add the default password for the 'root' user（Change the empty password to 'password'）
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
@@ -38,7 +43,7 @@ sed -i "s/ImmortalWrt/KarnadiWrt/g" package/base-files/files/bin/config_generate
 # Set Interface
 sed -i "9 i\uci set network.wana=interface\nuci set network.wana.proto='3g'\nuci set network.wana.device='/dev/ttyUSB1'\nuci set network.wana.service='LTE'\nuci set network.wana.apn='internet'\nuci set network.wana.ipv6='auto'\nuci set network.wanb=interface\nuci set network.wanb.proto='dhcp'\nuci set network.wanb.device='eth0.10'\nuci set network.wanc=interface\nuci set network.wanc.proto='dhcp'\nuci set network.wanc.device='usb0'\nuci set network.@device[0].ports='eth0' 'eth0.100' 'eth0.200' 'eth0.300'\nuci commit network" package/emortal/default-settings/files/99-default-settings
 sed -i "23 i\uci add_list firewall.@zone[1].network='wana'\nuci add_list firewall.@zone[1].network='wanb'\nuci add_list firewall.@zone[1].network='wanc'\nuci commit firewall\n" package/emortal/default-settings/files/99-default-settings
-sed -i "27 i\uci uci set luci.main.mediaurlbase='/luci-static/argon'\nuci commit luci\n" package/emortal/default-settings/files/99-default-settings
+
 
 # Set shell zsh
 sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
