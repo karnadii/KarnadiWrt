@@ -64,12 +64,18 @@ runs:
         sync
         echo -e "About the ${openwrt_savepath} directory: \n$(ls -l ${openwrt_savepath} 2>/dev/null)"
 
+        echo "=========================================="
         echo "Removing openwrt folder to increase space"
         pwd
+        ls -la
         cd ${GITHUB_WORKSPACE}
         pwd
-        rm -rf openwrt/
+        ls-la
+        echo "Trying to remove openwrt source code"
+        sudo rm -rf openwrt/
+        sudo rm -rf /workdir/openwrt
         ls -la
+        echo "=========================================="
 
         cd ${GITHUB_ACTION_PATH}
         echo -e "Start to make openwrt..."
