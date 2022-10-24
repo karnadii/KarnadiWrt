@@ -67,14 +67,17 @@ runs:
         echo "=========================================="
         echo "Removing openwrt folder to increase space"
         pwd
+        df -h
         ls -la
         cd ${GITHUB_WORKSPACE}
         pwd
         ls -la
         echo "Trying to remove openwrt source code"
         sudo rm -rf openwrt/
+        sudo rm -rf /home/runner/work/KarnadiWrt/KarnadiWrt/openwrt/
         sudo rm -rf /workdir/openwrt
         ls -la
+        df -h
         echo "=========================================="
 
         cd ${GITHUB_ACTION_PATH}
