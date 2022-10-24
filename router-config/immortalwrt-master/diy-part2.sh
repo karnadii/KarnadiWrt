@@ -150,7 +150,7 @@ svn co https://github.com/karnadii/rooter/trunk/package/rooter/0basicsupport/ext
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/ext-rooter-basic package/ext-rooter-basic
 # disable banner from rooter
-sudo -x package/ext-rooter-basic/files/etc/init.d/bannerset
+sudo chmod -x package/ext-rooter-basic/files/etc/init.d/bannerset
 
 # Add luci-app-3ginfo
 svn co https://github.com/lynxnexy/luci-app-3ginfo/trunk package/luci-app-3ginfo
