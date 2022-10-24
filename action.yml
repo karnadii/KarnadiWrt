@@ -70,7 +70,7 @@ runs:
         ls -la
         cd ${GITHUB_WORKSPACE}
         pwd
-        ls-la
+        ls -la
         echo "Trying to remove openwrt source code"
         sudo rm -rf openwrt/
         sudo rm -rf /workdir/openwrt
