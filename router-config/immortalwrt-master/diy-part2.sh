@@ -164,8 +164,8 @@ git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
-cp /home/karnadi/openwrt/KarnadiWrt/amlogic-s9xxx/common-files/patches/zsh/.zshrc .
-cp /home/karnadi/openwrt/KarnadiWrt/amlogic-s9xxx/common-files/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
+cp ${GITHUB_WORKSPACE}/amlogic-s9xxx/common-files/patches/zsh/.zshrc .
+cp ${GITHUB_WORKSPACE}/amlogic-s9xxx/common-files/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
 popd
 
 # Set modemmanager to disable
