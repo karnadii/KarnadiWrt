@@ -18,7 +18,6 @@ Kenapa saya membuat ini? Sebenarnya sudah banyak firmware di luar sana yang bagu
 
 ## BUG
 - Libernet belum bisa jalan
-- 30sysinfo error saat login terminal
 
 ## TODO
 - Rapikan Menu
