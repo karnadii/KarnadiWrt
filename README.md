@@ -12,29 +12,21 @@ Kenapa saya membuat ini? Sebenarnya sudah banyak firmware di luar sana yang bagu
 4. Nama WiFi bawaan: `KarnadiWrt`
 5. kata sandi bawaan: `kosong`
 
-## Fitur
-### Alat Injek dan Bypass
-- Passwall
-- Openclash
-- v2rayA
-### Pemblokir Iklan
-- AdguardHome
-### Modem
-- Lock band
-- SMS tool
-- 3g Modem Info
-- Network Status
-- AT Command
-### Monitoring
-- Netdata
-- Bandwith monitor
-- Online User
-- eQOS untuk Limit bandwith
+## Preview
+[terminal](img/terminal.png)
+[preview](img/feature.png)
 
-dan masih banyak lagi fitur lainnya.
+## BUG
+- Libernet belum bisa jalan
+- 30sysinfo error saat login terminal
 
-## Pratinjau
-![karnadiwrt](img/karnadiwrt.png)
+## TODO
+- Rapikan Menu
+- Fix libernet
+- Tambahkan lebih banyak tema
+
+## Troubleshoting
+- fix PHP `wget -O /bin/fixphp "https://raw.githubusercontent.com/helmiau/openwrt-config/main/fix-xderm-libernet-gui" && chmod +x /bin/fixphp && fixphp`
 
 ## Kredit
 - [immortalwrt](https://github.com/immortalwrt/immortalwrt)
@@ -43,7 +35,5 @@ dan masih banyak lagi fitur lainnya.
 - [lynxnexy](https://t.me/lynxnexy)
 - [r3yr3](https://www.youtube.com/c/IndonesianTechChannel)
 - [helmiau](https://github.com/helmiau)
-## Links
 - [OpenWrt](https://github.com/openwrt/openwrt)
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
-- [unifreq/openwrt_packit](https://github.com/unifreq/openwrt_packit)

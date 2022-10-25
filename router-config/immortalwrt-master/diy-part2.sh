@@ -5,7 +5,7 @@
 # Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
 #========================================================================================================================
 # TODO: 
-# - install libernet with php8
+# - Libernet tidak bisa connect
 # - fix /etc/profile.d/30-sysinfo.sh:15: = not found
 #
 #================================
@@ -47,7 +47,7 @@ sed -i "23 i\uci add_list firewall.@zone[1].network='wana'\nuci add_list firewal
 sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 
 # Set php7 max_size
-sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 1024M/g" -e "s/post_max_size = 8M/post_max_size = 1024M/g" feeds/packages/lang/php7/files/php.ini
+# sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 1024M/g" -e "s/post_max_size = 8M/post_max_size = 1024M/g" feeds/packages/lang/php7/files/php.ini
 
 #=================================
 # Utility App
@@ -59,7 +59,19 @@ svn co https://github.com/lynxnexy/luci-app-amlogic/trunk package/luci-app-amlog
 svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
 
 # Add luci-app-tinyfilemanager
-svn co https://github.com/lynxnexy/luci-app-tinyfilemanager/trunk package/luci-app-tinyfilemanager
+# svn co https://github.com/lynxnexy/luci-app-tinyfilemanager/trunk package/luci-app-tinyfilemanager
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/luci-app-tinyfm package/luci-app-tinyfm
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/luci-app-libernet-plus package/luci-app-libernet-plus
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/luci-app-libernet-bin package/luci-app-libernet-bin
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/luci-app-mulimiter package/luci-app-mulimiter
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/luci-app-myxllite package/luci-app-myxllite
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/luci-app-netmon package/luci-app-netmon
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/luci-app-openspeedtest package/luci-app-openspeedtest
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/badvpn package/badvpn
+svn co https://github.com/helmiau/helmiwrt-packages/trunk/corkscrew package/corkscrew
+
+rm -rf feeds/luci/applications/luci-app-filebrowser
+svn co https://github.com/happy902/luci-app-filebrowser/trunk package/luci-app-filebrowser
 
 # Add luci-app-adguardhome
 svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
@@ -79,9 +91,6 @@ chmod +x files/bin/yt-dlp
 mkdir -p files/bin
 wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-aarch64.tgz | tar xOvz > files/bin/speedtest
 chmod +x files/bin/speedtest
-
-# Shutdown button
-# git clone --depth 1 https://github.com/esirplayground/luci-app-poweroff package/luci-app-poweroff
 
 #================================
 # Injek/Vpn/Bypass App
@@ -114,25 +123,17 @@ mkdir -p files/etc/openclash
 curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -o files/etc/openclash/GeoSite.dat
 curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -o files/etc/openclash/GeoIP.dat
 
-# Libernet
-# svn co https://github.com/r3yr3/reyre-package/trunk/luci-app-libernet package/luci-app-libernet
-
-#================================
-# Themes
-#================================
-
 #================================
 # Monitoring
 #================================
 # User online cek
 
 svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner package/luci-app-onliner
-# Wrtbwmon
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
-# netdata
+#cat
 # rm -rf feeds/luci/applications/luci-app-netdata
-# sed -i 's/10.*/10.* 11.* 192.168.* 172.16.* 172.17.* 172.18.* 172.19.* 172.20.* 172.21.* 172.22.* 172.23.* 172.24.* 172.25.* 172.26.* 172.27.* 172.28.* 172.29.* 172.30.* 172.31.*/g' package/feeds/packages/netdata/files/netdata.conf
+sed -i 's/10.*/10.* 11.* 192.168.* 172.16.* 172.17.* 172.18.* 172.19.* 172.20.* 172.21.* 172.22.* 172.23.* 172.24.* 172.25.* 172.26.* 172.27.* 172.28.* 172.29.* 172.30.* 172.31.*/g' package/feeds/packages/netdata/files/netdata.conf
 # git clone --depth 1 https://github.com/karnadii/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
 #================================
@@ -150,7 +151,7 @@ svn co https://github.com/karnadii/rooter/trunk/package/rooter/ext-rooter-basic 
 sudo chmod -x package/ext-rooter-basic/files/etc/init.d/bannerset
 sed -i 's/luci-theme-openwrt-2020/luci-theme-argon/g' package/ext-rooter-basic/Makefile
 # Add luci-app-3ginfo
-svn co https://github.com/lynxnexy/luci-app-3ginfo/trunk package/luci-app-3ginfo
+# svn co https://github.com/lynxnexy/luci-app-3ginfo/trunk package/luci-app-3ginfo
 # Add luci-app-atinout-mod
 svn co https://github.com/lynxnexy/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
   
@@ -185,7 +186,7 @@ cat << EOF > package/luci-app-openclash/luasrc/view/openclash/editor.htm
 <iframe id="editor" style="width: 100%; min-height: 100vh; border: none; border-radius: 2px;"></iframe>
 </div>
 <script type="text/javascript">
-document.getElementById("editor").src = "http://" + window.location.hostname + "/tinyfilemanager/index.php?p=etc/openclash";
+document.getElementById("editor").src = "http://" + window.location.hostname + "/tinyfm/index.php?p=etc/openclash";
 </script>
 <%+footer%>
 EOF
