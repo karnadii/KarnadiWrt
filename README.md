@@ -13,8 +13,8 @@ Kenapa saya membuat ini? Sebenarnya sudah banyak firmware di luar sana yang bagu
 5. kata sandi bawaan: `kosong`
 
 ## Preview
-[terminal](img/terminal.png)
-[preview](img/feature.png)
+![terminal](img/terminal.png)
+![preview](img/feature.png)
 
 ## BUG
 - Libernet belum bisa jalan
