@@ -5,9 +5,8 @@
 # Source code repository: https://github.com/immortalwrt/immortalwrt.git / Branch: 21.02
 #========================================================================================================================
 # TODO: 
-# - fix aria2 not running
 # - install libernet with php8
-# - make custom login header
+# - fix /etc/profile.d/30-sysinfo.sh:15: = not found
 #
 #================================
 # Konfigurasi Setting
@@ -18,8 +17,7 @@ echo "DISTRIB_SOURCECODE='KarnadiWrt'" >>package/base-files/files/etc/openwrt_re
 
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-argon）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-sed -i 's/luci-theme-openwrt-2020/luci-theme-argon/g' package/ext-rooter-basic/Makefile
-sed -i "27 i\uci uci set luci.main.mediaurlbase='/luci-static/argon'\nuci commit luci\n" package/emortal/default-settings/files/99-default-settings
+sed -i '27 i\uci uci set luci.main.mediaurlbase="/luci-static-argon/"\nuci commit luci\n' package/emortal/default-settings/files/99-default-settings
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
 sed -i 's/192.168.1.1/11.11.1.1/g' package/base-files/files/bin/config_generate
@@ -122,19 +120,19 @@ curl -sL https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/downloa
 #================================
 # Themes
 #================================
-# git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-# git clone --depth 1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-
+git clone https://github.com/DHDAXCW/theme package/theme
 #================================
 # Monitoring
 #================================
 # User online cek
+
 svn co https://github.com/haiibo/openwrt-packages/trunk/luci-app-onliner package/luci-app-onliner
 # Wrtbwmon
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
 # netdata
 # rm -rf feeds/luci/applications/luci-app-netdata
+sed -i 's/10.*/10.* 11.* 192.168.* 172.16.* 172.17.* 172.18.* 172.19.* 172.20.* 172.21.* 172.22.* 172.23.* 172.24.* 172.25.* 172.26.* 172.27.* 172.28.* 172.29.* 172.30.* 172.31.*/g' package/feeds/packages/netdata/files/netdata.conf
 # git clone --depth 1 https://github.com/karnadii/luci-app-netdata feeds/luci/applications/luci-app-netdata
 
 #================================
@@ -150,7 +148,7 @@ svn co https://github.com/karnadii/rooter/trunk/package/rooter/0basicsupport/ext
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/ext-rooter-basic package/ext-rooter-basic
 # disable banner from rooter
 sudo chmod -x package/ext-rooter-basic/files/etc/init.d/bannerset
-
+sed -i 's/luci-theme-openwrt-2020/luci-theme-argon/g' package/ext-rooter-basic/Makefile
 # Add luci-app-3ginfo
 svn co https://github.com/lynxnexy/luci-app-3ginfo/trunk package/luci-app-3ginfo
 # Add luci-app-atinout-mod
@@ -166,8 +164,8 @@ git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
-cp $GITHUB_WORKSPACE/amlogic-s9xxx/common-files/patches/zsh/.zshrc .
-cp $GITHUB_WORKSPACE/amlogic-s9xxx/common-files/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
+cp /home/karnadi/openwrt/KarnadiWrt/amlogic-s9xxx/common-files/patches/zsh/.zshrc .
+cp /home/karnadi/openwrt/KarnadiWrt/amlogic-s9xxx/common-files/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
 popd
 
 # Set modemmanager to disable
