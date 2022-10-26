@@ -163,42 +163,42 @@ sys_tempx=$(echo $sys_temp | sed 's/ / /g')
 # display info
 
 machine_model=$(cat /proc/device-tree/model | tr -d "\000")
-echo -e "  Device Model	: \033[93m${machine_model}\033[0m"
+echo -e " Device Model	: \033[93m${machine_model}\033[0m"
 #printf "  Architecture 	: \x1B[93m%s\x1B[0m" "$sys_tempx"
 #echo ""
-display "  Load Average	" "${load%% *}" "${critical_load}" "0" "" "${load#* }"
+display " Load Average	" "${load%% *}" "${critical_load}" "0" "" "${load#* }"
 echo ""
-printf "  Uptime	: \x1B[92m%s\x1B[0m\t\t" "$time"
+printf " Uptime 	: \x1B[92m%s\x1B[0m\t\t" "$time"
 echo ""
 
-display "  Ambient Temp	" "$cpu_tempx" "60" "0" "°C"
+display " Ambient Temp	" "$cpu_tempx" "60" "0" "°C"
 if [ -x /usr/bin/cpustat ]; then
 	cpu_freq=$(/usr/bin/cpustat -F1500)
 echo ""
-	echo -n "  CPU Freq	: $cpu_freq"
+	echo -n " CPU Freq	: $cpu_freq"
 else
-	display "CPU Freq" "$cpu_freq" "1500" "0" " Mhz" ""
+	display " CPU Freq" "$cpu_freq" "1500" "0" " Mhz" ""
 fi
 echo ""
 
-display "  Memory Usage	" "$memory_usage" "70" "0" "%" " of ${memory_total}MB"
+display " Memory Usage	" "$memory_usage" "70" "0" "%" " of ${memory_total}MB"
 echo ""
-printf "  IP Address	: \x1B[92m%s\x1B[0m" "$ip_address"
+printf " IP Address	: \x1B[92m%s\x1B[0m" "$ip_address"
 #display "Swap Usage" "$swap_usage" "10" "0" "%" " of $swap_total""Mb"
 echo ""
 
 #display " Boot Storage	" "$boot_usage" "90" "1" "%" " of $boot_total"
 #echo ""
-display "  SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
+display " SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
 echo ""
 
 if [ "$sda_usage" != "" ]; then
-	display "  USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"
+	display " USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"
 	echo ""
 fi
 
 if [ "$sdb_usage" != "" ]; then
-	display "  USB2 Storage	" "$sdb_usage" "90" "1" "%" " of $sdb_total"
+	display " USB2 Storage	" "$sdb_usage" "90" "1" "%" " of $sdb_total"
 	echo ""
 fi
 
