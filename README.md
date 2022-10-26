@@ -36,3 +36,4 @@ Kenapa saya membuat ini? Sebenarnya sudah banyak firmware di luar sana yang bagu
 - [helmiau](https://github.com/helmiau)
 - [OpenWrt](https://github.com/openwrt/openwrt)
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
+- [haiibo](https://github.com/haiibo)
