@@ -53,7 +53,7 @@ sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 # Utility App
 #=================================
 # Add luci-app-amlogic
-svn co https://github.com/lynxnexy/luci-app-amlogic/trunk package/luci-app-amlogic
+svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Add p7zip
 svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
