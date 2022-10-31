@@ -154,7 +154,12 @@ sed -i 's/luci-theme-openwrt-2020/luci-theme-argon/g' package/ext-rooter-basic/M
 # svn co https://github.com/lynxnexy/luci-app-3ginfo/trunk package/luci-app-3ginfo
 # Add luci-app-atinout-mod
 svn co https://github.com/lynxnexy/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
-  
+
+# internet detector
+svn co https://github.com/gSpotx2f/luci-app-internet-detector/trunk/trunk/luci-app-internet-detector package/luci-app-internet-detector
+svn co https://github.com/gSpotx2f/luci-app-internet-detector/trunk/trunk/internet-detector package/internet-detector
+
+
 #================================
 ## MISC
 #================================
