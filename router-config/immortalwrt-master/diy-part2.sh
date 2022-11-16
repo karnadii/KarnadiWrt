@@ -191,7 +191,7 @@ cat << EOF > package/luci-app-openclash/luasrc/view/openclash/editor.htm
 <iframe id="editor" style="width: 100%; min-height: 100vh; border: none; border-radius: 2px;"></iframe>
 </div>
 <script type="text/javascript">
-document.getElementById("editor").src = "http://" + window.location.hostname + "/tinyfm/index.php?p=etc/openclash";
+document.getElementById("editor").src = "http://" + window.location.hostname + "/tinyfm/tinyfm.php?p=etc/openclash";
 </script>
 <%+footer%>
 EOF
