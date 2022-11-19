@@ -147,6 +147,11 @@ svn co https://github.com/karnadii/rooter/trunk/package/rooter/0drivers/rqmi pac
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/ext-rooter-basic package/ext-rooter-basic
+# Rooter splash
+svn co https://github.com/karnadii/rooter/trunk/package/rooter/0splash/status package/status
+svn co https://github.com/karnadii/rooter/trunk/package/rooter/0splash/splash package/splash
+svn co https://github.com/karnadii/rooter/trunk/package/rooter/0splash/ext-splashconfig package/ext-splashconfig
+svn co https://github.com/karnadii/rooter/trunk/package/rooter/0splash/ext-splash package/ext-splash
 # disable banner from rooter
 sudo chmod -x package/ext-rooter-basic/files/etc/init.d/bannerset
 sed -i 's/luci-theme-openwrt-2020/luci-theme-argon/g' package/ext-rooter-basic/Makefile
