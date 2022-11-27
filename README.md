@@ -29,6 +29,7 @@ Kenapa saya membuat ini? Sebenarnya sudah banyak firmware di luar sana yang bagu
 
 ## Kredit
 - [immortalwrt](https://github.com/immortalwrt/immortalwrt)
+- [ofmodemsandmen](ofmodemsandmen.com/)
 - [unifreq](https://github.com/unifreq)
 - [ophub](https://github.com/ophub)
 - [lynxnexy](https://t.me/lynxnexy)
