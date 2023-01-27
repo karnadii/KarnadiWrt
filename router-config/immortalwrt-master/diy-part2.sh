@@ -167,7 +167,7 @@ svn co https://github.com/lynxnexy/luci-app-atinout-mod/trunk package/luci-app-a
 svn co https://github.com/gSpotx2f/luci-app-internet-detector/trunk/luci-app-internet-detector package/luci-app-internet-detector
 svn co https://github.com/gSpotx2f/luci-app-internet-detector/trunk/internet-detector package/internet-detector
 
-git clone https://github.com/tmn505/openwrt-dvb package/openwrt-dvb
+# git clone https://github.com/tmn505/openwrt-dvb package/openwrt-dvb
 
 #================================
 ## MISC
