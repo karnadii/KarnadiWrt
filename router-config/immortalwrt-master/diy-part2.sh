@@ -155,6 +155,8 @@ svn co https://github.com/karnadii/rooter/trunk/package/rooter/0splash/ext-splas
 # Rooter Bandwith monitor
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/0optionalapps/bwallocate package/bwallocate
 svn co https://github.com/karnadii/rooter/trunk/package/rooter/0optionalapps/bwmon package/bwmon
+svn co https://github.com/karnadii/rooter/trunk/package/rooter/0optionalapps/ext-throttle package/ext-throttle
+
 # disable banner from rooter
 sudo chmod -x package/ext-rooter-basic/files/etc/init.d/bannerset
 sed -i 's/luci-theme-openwrt-2020/luci-theme-argon/g' package/ext-rooter-basic/Makefile
